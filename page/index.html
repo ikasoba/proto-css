@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="../src/proto.css"
+      rel="stylesheet"
+    />
+    <script defer src="../src/js/jsx-loader.js"></script>
+    <title>Proto.CSS example</title>
+    <link rel="dns-prefetch" href="https://esm.sh">
+  </head>
+  <body>
+    <header p-sticky>
+      <h1>Proto.CSS example</h1>
+    </header>
+    <main>
+      <button>
+        button
+      </button>
+      <input type="color" />
+      <input type="checkbox" />
+      <input type="text" />
+      <input type="datetime-local" />
+      <a href="https://example.com" target="_blank">
+        https://example.com
+      </a>
+      <div p-flex-row p-items-center>
+        <img src="./shiba-inu.jpg" p-block p-trim-bottom p-round-max width="128" height="128" />
+        <p style="margin-left: 1rem;">Dogs are the cutest thing in the world!</p>
+      </div>
+      <pre><code>
+  console.log("hogehoge");
+      </code></pre>
+      <div id="counter_root"></div>
+      <div p-box>
+        <h2>hogehoge</h2>
+        aaa
+      </div>
+    </main>
+    <footer p-center>
+      _(┐「ε:)_ < I am Junsuke Takazawa.
+    </footer>
+    <script type="text/babel" factory="h">
+      import { h, Component, render } from 'preact'
+      import { useState } from "preact/hooks"
+
+      function Counter(props) {
+        const [count, setCount] = useState(0)
+        return (
+          <button onClick={() => setCount(count + 1)}>
+            count: {count}
+          </button>
+        );
+      }
+
+      render(<Counter />, document.getElementById("counter_root"));
+    </script>
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "https://esm.sh/preact",
+          "preact/hooks": "https://esm.sh/preact/hooks"
+        }
+      }
+    </script>
+  </body>
+</html>
