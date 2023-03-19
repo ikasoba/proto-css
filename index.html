@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="./src/proto.css"
+      rel="stylesheet"
+    />
+    <title>Proto.CSS</title>
+  </head>
+  <body>
+    <header p-center>
+      <h1>Proto.CSS</h1>
+    </header>
+    <main p-center>
+      <div p-box style="padding: 1rem; width: 80%;">
+        <h2>
+          About
+        </h2>
+        <p>
+          Proto.CSS is a CSS framework that provides simplified styling for the lazy.<br/>
+          A simple and small JSX compiler is also included, so feel g free to use it.
+        </p>
+        <h2>
+          How to use Proto.CSS
+        </h2>
+        <p>
+          Proto.CSS is located at <code>./src/proto.css</code>.<br/>
+          In the following example, we will actually use Proto.CSS after downloading Proto.CSS using git.
+        </p>
+        <pre><code>
+  $ git clone https://github.com/ikasoba/proto-css.git
+  $ touch index.html
+        </code></pre>
+        <pre><code>
+  &lt;!-- index.html --&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;link rel="stylesheet" href="./proto-css/src/proto.css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;button&gt;
+        count: 0
+      &lt;/button&gt;
+      &lt;script&gt;
+        let i = 0
+        const button = document.querySelector("button")
+        button.addEventListener("click", () => {
+          i++
+          button.innerText = `count: ${i}`
+        })
+      &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+        </code></pre>
+        <h2>How to use the JSX compiler</h2>
+        <p>
+          The JSX compiler and loader are <code>./src/js/</code> directory.<br/>
+          The following example imports the loader and actually compiles the JSX on the client side.
+        </p>
+        <pre><code>
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;link rel="stylesheet" href="./proto-css/src/proto.css" /&gt;
+      &lt;script defer src="./src/js/jsx-loader.js" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div id="root"&gt;&lt;/div&gt;
+      &lt;!-- The type attribute can also be "text/babel". --&gt;
+      &lt;script type="jsx" factory="h"&gt;
+        import { h, Component, render } from 'https://esm.sh/preact'
+        import { useState } from "https://esm.sh/preact/hooks"
+          
+        function Counter(props) {
+          const [count, setCount] = useState(0)
+          return (
+            &lt;button onClick={() => setCount(count + 1)}&gt;
+              count: {count}
+            &lt;/button&gt;
+          );
+        }
+
+        render(&lt;Counter /&gt;, document.getElementById("root"));
+      &lt;/script&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+        </code></pre>
+      </div>
+    </main>
+  </body>
+</html>

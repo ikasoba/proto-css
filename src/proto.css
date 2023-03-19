@@ -69,6 +69,10 @@ pre > code {
   display: block;
 }
 
+code:not(pre > code) {
+  line-height: 1.5rem;
+}
+
 button, input[type="submit" i], input[type="button" i], input[type="reset" i], input[type="color" i] {
   margin: 0.25rem;
   padding: 0.5rem;
