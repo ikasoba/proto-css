@@ -1,6 +1,7 @@
 # Proto.CSS
 
 Proto.CSS is a middle ground between Reset CSS and CSS frameworks and is used to make things look better for now.
+[Example here](//ikasoba.github.io/proto-css/example/index.html)
 
 ## Usage
 ```html
