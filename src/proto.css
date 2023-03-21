@@ -125,6 +125,38 @@ code:not(pre > code) {
   line-height: 1.5rem;
 }
 
+[monokai-stmt] {
+  color: #f92672;
+}
+
+[monokai-name] {
+  color: #a6e22e;
+}
+
+[monokai-arg] {
+  color: #fd971f;
+}
+
+[monokai-fn] {
+  color: #66d9ef;
+}
+
+[monokai-const] {
+  color: #ae81ff;
+}
+
+[monokai-string] {
+  color: #e6db74;
+}
+
+[monokai-comment] {
+  color: #75715e;
+}
+
+[monokai-text] {
+  color: #fff;
+}
+
 button, input[type="submit" i], input[type="button" i], input[type="reset" i], input[type="color" i] {
   margin: 0.25rem;
   padding: 0.5rem;
