@@ -10,19 +10,35 @@
     <title>Proto.CSS</title>
   </head>
   <body>
-    <header p-center>
-      <h1>Proto.CSS</h1>
+    <header p-justify-center p-items-center>
+      <h1 id="top">Proto.CSS</h1>
     </header>
-    <main p-center>
-      <div p-box style="padding: 1rem; width: 80%;">
-        <h2>
+    <main p-justify-center p-horizontal>
+      <div p-sticky-top p-h-max>
+        <nav style="z-index: 1;">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="#top">Top</a>
+              <li><a href="#about">About</a>
+            <li><a href="#how-to-use-proto-css">How to use Proto.CSS</a>
+            <li><a href="#how-to-use-jsx">How to use the JSX compiler</a>
+          </ul>
+          <h3>Other Links</h3>
+          <ul>
+            <li><a href="example/">example</a>
+              <li><a href="https://github.com/ikasoba/proto-css">repository</a>
+          </ul>
+        </nav>
+      </div>
+      <article>
+        <h2 id="about">
           About
         </h2>
         <p>
           Proto.CSS is a CSS framework that provides simplified styling for the lazy.<br/>
           A simple and small JSX compiler is also included, so feel g free to use it.
         </p>
-        <h2>
+        <h2 id="how-to-use-proto-css">
           How to use Proto.CSS
         </h2>
         <p>
@@ -54,7 +70,7 @@
     &lt;/body&gt;
   &lt;/html&gt;
         </code></pre>
-        <h2>How to use the JSX compiler</h2>
+        <h2 id="how-to-use-jsx">How to use the JSX compiler</h2>
         <p>
           The JSX compiler and loader are <code>./src/js/</code> directory.<br/>
           The following example imports the loader and actually compiles the JSX on the client side.
@@ -86,7 +102,7 @@
     &lt;/body&gt;
   &lt;/html&gt;
         </code></pre>
-      </div>
+      </article>
     </main>
   </body>
 </html>

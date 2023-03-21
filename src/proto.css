@@ -1,29 +1,80 @@
 :root {
-  --proto-bg-color: 255, 255, 255;
   --proto-accent-color: #1e90ff;
-  --proto-dark-color: #020202;
-  --proto-edge-color: gainsboro;
-  --proto-shadow-color: rgba(0, 0, 0, 0.15);
   --proto-link-color: #1e90ff;
-  --proto-text-color: #020202;
+  --proto-scrollbar-bg-color: rgba(2, 2, 2, 0.5);
+  --proto-scrollbar-thumb-color: rgba(255, 255, 255, 0.5);
+
+  --proto-light-bg-color: 255, 255, 255;
+  --proto-light-dark-color: #020202;
+  --proto-light-edge-color: gainsboro;
+  --proto-light-shadow-color: rgba(0, 0, 0, 0.15);
+  --proto-light-text-color: #020202;
+
+  --proto-dark-bg-color: 50, 50, 50;
+  --proto-dark-dark-color: #fdfdfd;
+  --proto-dark-shadow-color: rgba(0, 0, 0, 0.5);
+  --proto-dark-edge-color: rgb(84, 84, 84);
+  --proto-dark-text-color: #fdfdfd;
+
+  --proto-bg-color: var(--proto-light-bg-color);
+  --proto-dark-color: var(--proto-light-dark-color);
+  --proto-shadow-color: var(--proto-light-shadow-color);
+  --proto-edge-color: var(--proto-light-edge-color);
+  --proto-text-color: var(--proto-light-text-color);
 
   tab-size: 2rem;
 }
 
+[p-emu-light] {
+  --proto-bg-color: var(--proto-light-bg-color);
+  --proto-dark-color: var(--proto-light-dark-color);
+  --proto-shadow-color: var(--proto-light-shadow-color);
+  --proto-edge-color: var(--proto-light-edge-color);
+  --proto-text-color: var(--proto-light-text-color);
+}
+
+[p-emu-dark] {
+  --proto-bg-color: var(--proto-dark-bg-color);
+  --proto-dark-color: var(--proto-dark-dark-color);
+  --proto-shadow-color: var(--proto-dark-shadow-color);
+  --proto-edge-color: var(--proto-dark-edge-color);
+  --proto-text-color: var(--proto-dark-text-color);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --proto-bg-color: 50, 50, 50;
-    --proto-accent-color: #1e90ff;
-    --proto-dark-color: #fdfdfd;
-    --proto-shadow-color: rgba(0, 0, 0, 0.5);
-    --proto-edge-color: rgb(84, 84, 84);
-    --proto-text-color: #fdfdfd;
+    --proto-bg-color: var(--proto-dark-bg-color);
+    --proto-dark-color: var(--proto-dark-dark-color);
+    --proto-shadow-color: var(--proto-dark-shadow-color);
+    --proto-edge-color: var(--proto-dark-edge-color);
+    --proto-text-color: var(--proto-dark-text-color);
   }
 }
 
 :root {
   accent-color: var(--proto-accent-color);
+}
+
+* {
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--proto-scrollbar-bg-color);
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0.5rem;
+}
+
+:root {
+  scrollbar-color: var(--proto-scrollbar-thumb-color) var(--proto-scrollbar-bg-color);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--proto-scrollbar-thumb-color);
 }
 
 :focus-visible {
@@ -137,14 +188,29 @@ footer {
   background-color: rgba(var(--proto-bg-color), 0.8);
 }
 
+img {
+  margin: 0.25rem;
+}
+
+[p-justify-center] {
+  display: flex;
+  justify-content: center;
+}
+
+[p-items-center] {
+  display: flex;
+  align-items: center;
+}
+
 [p-center] {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-[p-sticky] {
+[p-sticky-top] {
   position: sticky;
+  top: 0px;
 }
 
 [p-round] {
@@ -178,12 +244,12 @@ footer {
   display: block;
 }
 
-[p-flex-row] {
+[p-horizontal] {
   display: flex;
   flex-direction: row;
 }
 
-[p-flex-col] {
+[p-flex-vertical] {
   display: flex;
   flex-direction: column;
 }
@@ -193,11 +259,38 @@ footer {
   align-items: center;
 }
 
-[p-box] {
+[p-h-max] {
+  height: 100%;
+}
+
+[p-box], article, section, nav {
   margin: 0.25rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: var(--proto-bg-color);
+  backdrop-filter: blur(0.5rem);
+  background-color: rgba(var(--proto-bg-color), 0.8);
   border: solid 1px var(--proto-edge-color);
   box-shadow: 0rem 0.25rem 0.25rem var(--proto-shadow-color);
+  height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  [p-box], article, section, nav {
+    margin: 0.25rem 0rem;
+    border-radius: 0rem;
+    width: 100%;
+    border-width: 1px 0px;
+  }
+
+  main {
+    padding: 1rem 0rem;
+  }
+
+  [p-horizontal] {
+    flex-direction: column;
+  }
+
+  [p-sticky-top] {
+    position: inherit;
+  }
 }
