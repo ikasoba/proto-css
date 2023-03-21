@@ -20,7 +20,7 @@ Proto.CSS is a middle ground between Reset CSS and CSS frameworks and is used to
   let i = 0
   counter.addEventListener("click", () => {
     i ++
-    counter.childNodes[0].textContent = `count: ${i}`
+    counter.innerText = `count: ${i}`
   })
 </script>
 ```
