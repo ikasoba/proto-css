@@ -54,6 +54,7 @@
 * {
   box-sizing: border-box;
   accent-color: var(--proto-accent-color);
+  font-family: sans-serif;
 }
 
 /* scrollbar */
@@ -148,36 +149,35 @@ body {
     margin: 0.25rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: var(--proto-accent-color);
-    color: white;
-    border: none;
+    border: solid 1px var(--proto-accent-color);
+    color: var(--proto-accent-color);
+    background-color: rgb(var(--proto-bg-color));
     transition: filter 0.1s;
     vertical-align: middle;
-    box-shadow: 0rem 0.25rem 0.25rem var(--proto-shadow-color);
   }
   
   input[type="checkbox" i] {
-    border: solid 1px #000;
+    border: solid 1px var(--proto-accent-color);
+    background-color: rgb(var(--proto-bg-color));
     height: 1rem;
     width: 1rem;
-    box-shadow: 0rem 0.25rem 0.25rem var(--proto-shadow-color);
     vertical-align: middle;
   }
-  
+
   input[type="color" i] {
     padding: 0.1rem 0.25rem;
   }
-  
-  button:hover, input[type="submit" i]:hover, input[type="button" i]:hover, input[type="reset" i]:hover {
-    filter: grayscale(50%);
+
+  button:hover, input[type="submit" i]:hover, input[type="button" i]:hover, input[type="reset" i]:hover, input[type="color" i]:hover {
+    filter: contrast(95%);
   }
-  
-  button:active, input[type="submit" i]:active, input[type="button" i]:active, input[type="reset" i]:active {
-    filter: grayscale(100%);
+
+  button:active, input[type="submit" i]:active, input[type="button" i]:active, input[type="reset" i]:active, input[type="color" i]:active {
+    filter: grayscale(100%) contrast(90%);
   }
   
   textarea, input[type="text" i], input[type="date" i], input[type="datetime-local" i], input[type="email" i], input[type="month" i], input[type="number" i], input[type="password" i], input[type="search" i], input[type="tel" i], input[type="url" i], input[type="week" i] {
-    margin: 0.25rem;
+    margin: 0rem;
     padding: 0.25rem;
     border-radius: 0.5rem;
     background-color: var(--proto-bg-color);
@@ -185,7 +185,7 @@ body {
     font-family: sans-serif;
     font-size: 1rem;
     border: solid 1px var(--proto-edge-color);
-    box-shadow: 0rem 0.25rem 0.25rem var(--proto-shadow-color);
+    box-shadow: inset 0rem 0.55rem 0.25rem -0.5rem var(--proto-shadow-color);
   }
 
 /* markup */
@@ -220,9 +220,21 @@ body {
     backdrop-filter: blur(0.5rem);
     background-color: rgba(var(--proto-bg-color), 0.8);
   }
-  
+
   img {
     margin: 0.25rem;
+  }
+
+  [p-keep-square] {
+    aspect-ratio: 1/1;
+  }
+
+  [p-keep-16x9] {
+    aspect-ratio: 16/9;
+  }
+
+  [p-keep-4x3] {
+    aspect-ratio: 4/3;
   }
 
   [p-justify-center] {
@@ -276,15 +288,17 @@ body {
   [p-block] {
     display: block;
   }
-  
+
   [p-horizontal] {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
-  
-  [p-flex-vertical] {
+
+  [p-vertical] {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   [p-items-center] {
